@@ -2,19 +2,20 @@ class FishTableRow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showDescription: false
+      fish: props.fish,
+      showDescription: false,
     };
   }
 
   // Currently, the image being displayed is hardcoded from tinyurl.com
   render() {
     return (
-      <tr onClick={() => this.setState({showDescription: !this.state.showDescription})}>
-        <td className="fish-name" >{this.props.fish.name}</td>
+      <tr onClick={() => this.setState({ showDescription: !this.state.showDescription })}>
+        <td className="fish-name">{this.state.fish.name}</td>
         <td>
-          <img src='{this.props.fish.image}' />
+          <img src={this.state.fish.image} />
         </td>
-        {this.state.showDescription ? <td className="fish-description" >{this.props.fish.description}</td> : null}
+        {this.state.showDescription ? <td className="fish-description">{this.state.fish.description}?</td> : null}
       </tr>
     )
   }
@@ -26,6 +27,4 @@ FishTableRow.propTypes = {
   fish: React.PropTypes.object.isRequired
 };
 
-// In the ES6 spec, files are "modules" and do not share a top-level scope
-// `var` declarations will only exist globally where explicitly defined
-window.FishTableRow = FishTableRow;
+export default FishTableRow;

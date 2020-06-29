@@ -1,4 +1,5 @@
 //DO NOT MODIFY THIS FILE
+import FishTable from './components/FishTable.js';
 
 var fishData = [
   {
